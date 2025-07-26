@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Plus, X, Globe, Linkedin, Instagram, GraduationCap, Users, Award, Briefcase } from 'lucide-react';
-import skillbridgeImage from '../../assets/skillbridge.png';
 
 const RightPanel: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -24,7 +23,7 @@ const RightPanel: React.FC = () => {
         <div className="text-center max-w-lg">
           <div className="mb-8">
             <img
-              src={skillbridgeImage}
+              src="/lovable-uploads/e0be7986-2689-4a29-b5c5-04f4a938780d.png"
               alt="SkillBridge Platform"
               className="w-full max-w-md mx-auto rounded-2xl shadow-elegant hover:shadow-glow transition-all duration-500"
             />
