@@ -1,9 +1,8 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import StudentLayout from '../student/StudentLayout';
+import CareerPathNavigator from '../student/CareerPathNavigator';
 
 const StudentHome: React.FC = () => {
-  return <StudentLayout />;
+  return <CareerPathNavigator />;
 };
 
 export default StudentHome;
