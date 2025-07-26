@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* SkillBridge Design System - Modern, Adaptive, Role-Based Color Palette */
 
 @layer base {
   :root {
+    /* Base colors */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -17,8 +16,9 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand colors */
+    --primary: 266 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -34,9 +34,42 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 266 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Role-based colors */
+    --student-primary: 200 100% 50%;
+    --student-secondary: 190 100% 50%;
+    --educator-primary: 120 60% 50%;
+    --educator-secondary: 140 60% 50%;
+    --certifier-primary: 266 100% 50%;
+    --certifier-secondary: 280 100% 50%;
+    --jobprovider-primary: 15 100% 50%;
+    --jobprovider-secondary: 0 100% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(266 100% 50%), hsl(220 100% 50%));
+    --gradient-student: linear-gradient(135deg, hsl(200 100% 50%), hsl(190 100% 50%));
+    --gradient-educator: linear-gradient(135deg, hsl(120 60% 50%), hsl(140 60% 50%));
+    --gradient-certifier: linear-gradient(135deg, hsl(266 100% 50%), hsl(280 100% 50%));
+    --gradient-jobprovider: linear-gradient(135deg, hsl(15 100% 50%), hsl(0 100% 50%));
+    --gradient-subtle: linear-gradient(135deg, hsl(266 100% 97%), hsl(220 100% 97%));
+
+    /* Section backgrounds */
+    --bg-purple: 266 100% 97%;
+    --bg-blue: 220 100% 97%;
+    --bg-green: 120 60% 97%;
+    --bg-indigo: 240 100% 97%;
+    --bg-orange: 25 100% 97%;
+    --bg-cyan: 190 100% 97%;
+    --bg-rose: 350 100% 97%;
+    --bg-yellow: 50 100% 97%;
+
+    /* Shadows and effects */
+    --shadow-glow: 0 0 40px hsl(266 100% 50% / 0.3);
+    --shadow-elegant: 0 10px 30px -10px hsl(266 100% 50% / 0.2);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,6 +89,7 @@ All colors MUST be HSL.
   }
 
   .dark {
+    /* Dark mode base colors */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -65,8 +99,8 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 266 100% 60%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -82,7 +116,29 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 266 100% 60%;
+
+    /* Dark mode section backgrounds */
+    --bg-purple: 266 50% 10%;
+    --bg-blue: 220 50% 10%;
+    --bg-green: 120 30% 10%;
+    --bg-indigo: 240 50% 10%;
+    --bg-orange: 25 50% 10%;
+    --bg-cyan: 190 50% 10%;
+    --bg-rose: 350 50% 10%;
+    --bg-yellow: 50 50% 10%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(266 100% 60%), hsl(220 100% 60%));
+    --gradient-student: linear-gradient(135deg, hsl(200 100% 60%), hsl(190 100% 60%));
+    --gradient-educator: linear-gradient(135deg, hsl(120 60% 60%), hsl(140 60% 60%));
+    --gradient-certifier: linear-gradient(135deg, hsl(266 100% 60%), hsl(280 100% 60%));
+    --gradient-jobprovider: linear-gradient(135deg, hsl(15 100% 60%), hsl(0 100% 60%));
+    --gradient-subtle: linear-gradient(135deg, hsl(266 50% 15%), hsl(220 50% 15%));
+
+    /* Dark mode shadows */
+    --shadow-glow: 0 0 40px hsl(266 100% 50% / 0.5);
+    --shadow-elegant: 0 10px 30px -10px hsl(266 100% 50% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +156,111 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-all duration-300;
+  }
+}
+
+@layer components {
+  /* Custom gradient classes */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-student {
+    background: var(--gradient-student);
+  }
+  
+  .gradient-educator {
+    background: var(--gradient-educator);
+  }
+  
+  .gradient-certifier {
+    background: var(--gradient-certifier);
+  }
+  
+  .gradient-jobprovider {
+    background: var(--gradient-jobprovider);
+  }
+
+  /* Section backgrounds */
+  .bg-section-purple { background-color: hsl(var(--bg-purple)); }
+  .bg-section-blue { background-color: hsl(var(--bg-blue)); }
+  .bg-section-green { background-color: hsl(var(--bg-green)); }
+  .bg-section-indigo { background-color: hsl(var(--bg-indigo)); }
+  .bg-section-orange { background-color: hsl(var(--bg-orange)); }
+  .bg-section-cyan { background-color: hsl(var(--bg-cyan)); }
+  .bg-section-rose { background-color: hsl(var(--bg-rose)); }
+  .bg-section-yellow { background-color: hsl(var(--bg-yellow)); }
+
+  /* Interactive effects */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Form inputs with icons */
+  .input-with-icon {
+    @apply pl-10 pr-4 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200;
+  }
+
+  /* Role chip styles */
+  .skill-chip {
+    @apply px-3 py-1.5 rounded-full border transition-all duration-200 cursor-pointer select-none;
+  }
+  
+  .skill-chip-inactive {
+    @apply bg-background border-border text-foreground hover:border-primary hover:text-primary;
+  }
+  
+  .skill-chip-active {
+    @apply bg-primary text-primary-foreground border-primary shadow-md;
+  }
+}
+
+@layer utilities {
+  /* Animation keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7); }
+    70% { box-shadow: 0 0 0 10px hsl(var(--primary) / 0); }
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Utility classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+  
+  .animate-rotate {
+    animation: rotate 0.3s ease-in-out;
+  }
+
+  /* Custom shadow utilities */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
   }
 }
