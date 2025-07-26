@@ -3,11 +3,7 @@ import { Outlet } from 'react-router-dom';
 import StudentLayout from '../student/StudentLayout';
 
 const StudentHome: React.FC = () => {
-  return (
-    <StudentLayout>
-      <Outlet />
-    </StudentLayout>
-  );
+  return <StudentLayout />;
 };
 
 export default StudentHome;
