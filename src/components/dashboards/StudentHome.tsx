@@ -8,6 +8,7 @@ import ProgressAnalytics from '../student/ProgressAnalytics';
 import SkillLab from '../student/SkillLab';
 import ARVRLabs from '../student/ARVRLabs';
 import Explore from '../student/Explore';
+import Assessments from '../student/assessments/Assessments';
 
 const StudentHome: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const StudentHome: React.FC = () => {
         <Route path="student/progress" element={<ProgressAnalytics />} />
         <Route path="student/skill-lab" element={<SkillLab />} />
         <Route path="student/ar-vr-labs" element={<ARVRLabs />} />
+        <Route path="student/assessments" element={<Assessments />} />
         <Route path="student/achievements" element={<div className="p-8 text-center text-muted-foreground">Achievements section coming soon...</div>} />
         <Route path="student/leaderboard" element={<div className="p-8 text-center text-muted-foreground">Leaderboard section coming soon...</div>} />
         <Route path="student/mentors" element={<div className="p-8 text-center text-muted-foreground">Connect with Mentors section coming soon...</div>} />
