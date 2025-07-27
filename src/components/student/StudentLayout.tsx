@@ -3,7 +3,7 @@ import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { 
   LogOut, User, Menu, X, Home, BookOpen, Calendar, BarChart3, 
   Microscope, Smartphone, Trophy, Users, Briefcase, Globe, FileText,
-  ChevronDown, Edit3, Upload, ClipboardList
+  ChevronDown, Edit3, Upload, ClipboardList, MessageCircle
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { toast } from '../ui/use-toast';
@@ -40,6 +40,7 @@ const StudentLayout: React.FC = () => {
     { id: 'mentors', label: 'Connect with Mentors', icon: Users, path: '/student/mentors' },
     { id: 'jobs', label: 'Job Opportunities', icon: Briefcase, path: '/student/jobs' },
     { id: 'explore', label: 'Explore', icon: Globe, path: '/student/explore' },
+    { id: 'chat-ai', label: 'Chat with AI', icon: MessageCircle, path: '/student/chat-ai' },
     { id: 'resume', label: 'Resume Builder & ATS', icon: FileText, path: '/student/resume' },
   ];
 
