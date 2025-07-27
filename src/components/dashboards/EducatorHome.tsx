@@ -1,9 +1,38 @@
-import React from 'react';
-import { LogOut, Users, BookOpen, Award, TrendingUp, Calendar, MessageSquare, Star } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { LogOut, Users, BookOpen, Award, TrendingUp, Calendar, MessageSquare, Star, Bell, Mail, Clock, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+
+interface Notification {
+  to: string;
+  toName: string;
+  toRole: string;
+  subject: string;
+  message: string;
+  method: string;
+  timestamp: string;
+  from: string;
+  fromName: string;
+}
 
 const EducatorHome: React.FC = () => {
   const { user, logout } = useAuth();
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    // Load notifications for this educator
+    const allNotifications = JSON.parse(localStorage.getItem('mentor_notifications') || '[]');
+    const educatorNotifications = allNotifications.filter((notif: Notification) => 
+      notif.toRole === 'educator' && notif.toName === user?.fullName
+    );
+    setNotifications(educatorNotifications);
+    setUnreadCount(educatorNotifications.length);
+  }, [user]);
+
+  const markAsRead = () => {
+    setUnreadCount(0);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-green-50/30 to-emerald-50/30 dark:from-background dark:via-green-900/10 dark:to-emerald-900/10">
@@ -19,6 +48,72 @@ const EducatorHome: React.FC = () => {
             </div>
             
             <div className="flex items-center gap-4">
+              {/* Notifications */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    setShowNotifications(!showNotifications);
+                    if (!showNotifications) markAsRead();
+                  }}
+                  className="relative p-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Bell className="w-5 h-5" />
+                  {unreadCount > 0 && (
+                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
+                      {unreadCount > 9 ? '9+' : unreadCount}
+                    </span>
+                  )}
+                </button>
+
+                {showNotifications && (
+                  <div className="absolute right-0 top-full mt-2 w-80 bg-background border border-border rounded-lg shadow-lg z-50 max-h-96 overflow-y-auto">
+                    <div className="p-4 border-b border-border">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold text-foreground">Notifications</h3>
+                        <button
+                          onClick={() => setShowNotifications(false)}
+                          className="text-muted-foreground hover:text-foreground"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="max-h-64 overflow-y-auto">
+                      {notifications.length > 0 ? (
+                        notifications.map((notification, index) => (
+                          <div key={index} className="p-4 border-b border-border hover:bg-accent transition-colors">
+                            <div className="flex items-start gap-3">
+                              <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
+                                <Mail className="w-4 h-4 text-blue-600" />
+                              </div>
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <p className="font-medium text-foreground text-sm">{notification.fromName}</p>
+                                  <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs rounded-full">
+                                    Student
+                                  </span>
+                                </div>
+                                <p className="text-sm text-muted-foreground mb-1">{notification.subject}</p>
+                                <p className="text-xs text-muted-foreground line-clamp-2">{notification.message}</p>
+                                <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
+                                  <Clock className="w-3 h-3" />
+                                  <span>{new Date(notification.timestamp).toLocaleString()}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="p-8 text-center text-muted-foreground">
+                          <Bell className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                          <p>No new notifications</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <div className="text-right">
                 <p className="text-sm font-medium text-foreground">{user?.fullName}</p>
                 <p className="text-xs text-muted-foreground">Educator</p>
