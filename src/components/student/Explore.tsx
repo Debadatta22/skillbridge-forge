@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Globe, MapPin, Gamepad2, BookOpen, Rocket, Brain, TrendingUp } from 'lucide-react';
+import { ExternalLink, Globe, MapPin, Gamepad2, BookOpen, Rocket, Brain, TrendingUp, Briefcase, Trophy } from 'lucide-react';
 
 const Explore: React.FC = () => {
   const exploreItems = [
@@ -31,6 +31,24 @@ const Explore: React.FC = () => {
       url: "https://game-brain-boost.lovable.app/",
       category: "Gaming",
       color: "bg-purple-500/10 text-purple-400 border-purple-500/20"
+    },
+    {
+      id: 4,
+      title: "SkillBridge Internship Explore",
+      description: "Role-based Internship Exploration and Launch Platform. Find and apply for internships that match your skills and career aspirations.",
+      icon: Briefcase,
+      url: "https://futureforge-platform.lovable.app/",
+      category: "Internships",
+      color: "bg-orange-500/10 text-orange-400 border-orange-500/20"
+    },
+    {
+      id: 5,
+      title: "Fueling Innovation Through Hackathons",
+      description: "Discover. Compete. Build. HackathonVerse centralizes the world's most exciting challenges, competitions, and coding marathons – for students, educators, and innovators.",
+      icon: Trophy,
+      url: "https://hackathonverse-connect.lovable.app",
+      category: "Competitions",
+      color: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20"
     }
   ];
 
