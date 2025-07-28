@@ -1,4 +1,4 @@
-export type UserRole = 'student' | 'educator' | 'certifier' | 'jobprovider';
+export type UserRole = 'student' | 'indExpert' | 'certifier' | 'jobprovider';
 
 export interface User {
   id: string;
@@ -6,7 +6,7 @@ export interface User {
   fullName: string;
   role: UserRole;
   verified: boolean;
-  profileData?: StudentProfile | EducatorProfile | CertifierProfile | JobProviderProfile;
+  profileData?: StudentProfile | IndExpertProfile | CertifierProfile | JobProviderProfile;
 }
 
 export interface StudentProfile {
@@ -17,7 +17,7 @@ export interface StudentProfile {
   selectedSkills?: string[];
 }
 
-export interface EducatorProfile {
+export interface IndExpertProfile {
   aadhaarNumber: string;
   organizationName: string;
   experience: number;
@@ -65,5 +65,5 @@ export interface RegisterData {
   email: string;
   password: string;
   confirmPassword: string;
-  profileData: StudentProfile | EducatorProfile | CertifierProfile | JobProviderProfile;
+  profileData: StudentProfile | IndExpertProfile | CertifierProfile | JobProviderProfile;
 }

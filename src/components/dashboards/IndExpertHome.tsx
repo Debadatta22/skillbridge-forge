@@ -14,20 +14,20 @@ interface Notification {
   fromName: string;
 }
 
-const EducatorHome: React.FC = () => {
+const IndExpertHome: React.FC = () => {
   const { user, logout } = useAuth();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [showNotifications, setShowNotifications] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
-    // Load notifications for this educator
+    // Load notifications for this ind. expert
     const allNotifications = JSON.parse(localStorage.getItem('mentor_notifications') || '[]');
-    const educatorNotifications = allNotifications.filter((notif: Notification) => 
-      notif.toRole === 'educator' && notif.toName === user?.fullName
+    const indExpertNotifications = allNotifications.filter((notif: Notification) => 
+      notif.toRole === 'indExpert' && notif.toName === user?.fullName
     );
-    setNotifications(educatorNotifications);
-    setUnreadCount(educatorNotifications.length);
+    setNotifications(indExpertNotifications);
+    setUnreadCount(indExpertNotifications.length);
   }, [user]);
 
   const markAsRead = () => {
@@ -41,10 +41,10 @@ const EducatorHome: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 gradient-educator rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 gradient-indExpert rounded-lg flex items-center justify-center">
                 <Users className="w-5 h-5 text-white" />
               </div>
-              <h1 className="text-xl font-bold text-foreground">SkillBridge Educator Hub</h1>
+              <h1 className="text-xl font-bold text-foreground">SkillBridge Ind. Expert Hub</h1>
             </div>
             
             <div className="flex items-center gap-4">
@@ -116,7 +116,7 @@ const EducatorHome: React.FC = () => {
 
               <div className="text-right">
                 <p className="text-sm font-medium text-foreground">{user?.fullName}</p>
-                <p className="text-xs text-muted-foreground">Educator</p>
+                <p className="text-xs text-muted-foreground">Ind. Expert</p>
               </div>
               <button
                 onClick={logout}
@@ -135,10 +135,10 @@ const EducatorHome: React.FC = () => {
         {/* Welcome Section */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-foreground mb-2">
-            Welcome, Educator {user?.fullName?.split(' ')[0]}! 🎓
+            Welcome, Ind. Expert {user?.fullName?.split(' ')[0]}! 🎓
           </h2>
           <p className="text-muted-foreground">
-            Manage your courses, mentor students, and shape the future of digital education.
+            Share your expertise, mentor students, and contribute to the future of digital education.
           </p>
         </div>
 
@@ -236,7 +236,7 @@ const EducatorHome: React.FC = () => {
             <div className="bg-card border border-border rounded-xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-xl font-semibold text-foreground">Your Courses</h3>
-                <button className="gradient-educator text-white px-4 py-2 rounded-lg text-sm font-medium hover-glow transition-all duration-300">
+                <button className="gradient-indExpert text-white px-4 py-2 rounded-lg text-sm font-medium hover-glow transition-all duration-300">
                   Create New Course
                 </button>
               </div>
@@ -257,7 +257,7 @@ const EducatorHome: React.FC = () => {
                     <button className="flex-1 bg-accent text-foreground py-2 rounded-lg text-sm font-medium hover:bg-accent/80 transition-colors">
                       Manage
                     </button>
-                    <button className="flex-1 gradient-educator text-white py-2 rounded-lg text-sm font-medium hover-glow transition-all duration-300">
+                    <button className="flex-1 gradient-indExpert text-white py-2 rounded-lg text-sm font-medium hover-glow transition-all duration-300">
                       View Analytics
                     </button>
                   </div>
@@ -279,7 +279,7 @@ const EducatorHome: React.FC = () => {
                     <button className="flex-1 bg-accent text-foreground py-2 rounded-lg text-sm font-medium hover:bg-accent/80 transition-colors">
                       Continue Editing
                     </button>
-                    <button className="flex-1 gradient-educator text-white py-2 rounded-lg text-sm font-medium hover-glow transition-all duration-300">
+                    <button className="flex-1 gradient-indExpert text-white py-2 rounded-lg text-sm font-medium hover-glow transition-all duration-300">
                       Preview
                     </button>
                   </div>
@@ -372,7 +372,7 @@ const EducatorHome: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <button className="w-full mt-4 gradient-educator text-white py-2 rounded-lg text-sm font-medium hover-glow transition-all duration-300">
+              <button className="w-full mt-4 gradient-indExpert text-white py-2 rounded-lg text-sm font-medium hover-glow transition-all duration-300">
                 View All Messages
               </button>
             </div>
@@ -402,4 +402,4 @@ const EducatorHome: React.FC = () => {
   );
 };
 
-export default EducatorHome;
+export default IndExpertHome;

@@ -9,7 +9,7 @@ import RoleSelection from '../components/auth/RoleSelection';
 import RegistrationForm from '../components/auth/RegistrationForm';
 import SkillSelector from '../components/student/SkillSelector';
 import StudentHome from '../components/dashboards/StudentHome';
-import EducatorHome from '../components/dashboards/EducatorHome';
+import IndExpertHome from '../components/dashboards/IndExpertHome';
 import CertifierHome from '../components/dashboards/CertifierHome';
 import JobProviderHome from '../components/dashboards/JobProviderHome';
 
@@ -24,8 +24,8 @@ const Index = () => {
     switch (user.role) {
       case 'student':
         return <StudentHome />;
-      case 'educator':
-        return <EducatorHome />;
+      case 'indExpert':
+        return <IndExpertHome />;
       case 'certifier':
         return <CertifierHome />;
       case 'jobprovider':

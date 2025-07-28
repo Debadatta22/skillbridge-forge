@@ -44,7 +44,7 @@ const Explore: React.FC = () => {
     {
       id: 5,
       title: "Fueling Innovation Through Hackathons",
-      description: "Discover. Compete. Build. HackathonVerse centralizes the world's most exciting challenges, competitions, and coding marathons – for students, educators, and innovators.",
+      description: "Discover. Compete. Build. HackathonVerse centralizes the world's most exciting challenges, competitions, and coding marathons – for students, ind. experts, and innovators.",
       icon: Trophy,
       url: "https://hackathonverse-connect.lovable.app",
       category: "Competitions",

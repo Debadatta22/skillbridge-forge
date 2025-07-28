@@ -26,7 +26,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
     collegeName: '',
     course: '',
     enrollmentReason: '',
-    // Educator fields
+    // Ind. Expert fields
     organizationName: '',
     experience: '',
     specialization: '',
@@ -89,7 +89,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
             enrollmentReason: formData.enrollmentReason,
           };
           break;
-        case 'educator':
+        case 'indExpert':
           profileData = {
             ...profileData,
             organizationName: formData.organizationName,
@@ -204,7 +204,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
           </>
         );
 
-      case 'educator':
+      case 'indExpert':
         return (
           <>
             <div className="relative">

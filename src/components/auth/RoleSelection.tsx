@@ -8,7 +8,7 @@ interface RoleSelectionProps {
   onBackToLogin: () => void;
 }
 
-const roles: UserRole[] = ['student', 'educator', 'certifier', 'jobprovider'];
+const roles: UserRole[] = ['student', 'indExpert', 'certifier', 'jobprovider'];
 
 const RoleSelection: React.FC<RoleSelectionProps> = ({ onSelectRole, onBackToLogin }) => {
   return (

@@ -125,7 +125,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToRegister }) => {
             className="w-full p-3 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
           >
             <option value="student">Student</option>
-            <option value="educator">Educator</option>
+            <option value="indExpert">Ind. Expert</option>
             <option value="certifier">Certifier</option>
             <option value="jobprovider">Job Provider</option>
           </select>

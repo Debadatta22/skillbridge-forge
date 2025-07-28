@@ -41,8 +41,8 @@
     /* Role-based colors */
     --student-primary: 200 100% 50%;
     --student-secondary: 190 100% 50%;
-    --educator-primary: 120 60% 50%;
-    --educator-secondary: 140 60% 50%;
+    --indExpert-primary: 120 60% 50%;
+    --indExpert-secondary: 140 60% 50%;
     --certifier-primary: 266 100% 50%;
     --certifier-secondary: 280 100% 50%;
     --jobprovider-primary: 15 100% 50%;
@@ -51,7 +51,7 @@
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(266 100% 50%), hsl(220 100% 50%));
     --gradient-student: linear-gradient(135deg, hsl(200 100% 50%), hsl(190 100% 50%));
-    --gradient-educator: linear-gradient(135deg, hsl(120 60% 50%), hsl(140 60% 50%));
+    --gradient-indExpert: linear-gradient(135deg, hsl(120 60% 50%), hsl(140 60% 50%));
     --gradient-certifier: linear-gradient(135deg, hsl(266 100% 50%), hsl(280 100% 50%));
     --gradient-jobprovider: linear-gradient(135deg, hsl(15 100% 50%), hsl(0 100% 50%));
     --gradient-subtle: linear-gradient(135deg, hsl(266 100% 97%), hsl(220 100% 97%));
@@ -131,7 +131,7 @@
     /* Dark mode gradients */
     --gradient-primary: linear-gradient(135deg, hsl(266 100% 60%), hsl(220 100% 60%));
     --gradient-student: linear-gradient(135deg, hsl(200 100% 60%), hsl(190 100% 60%));
-    --gradient-educator: linear-gradient(135deg, hsl(120 60% 60%), hsl(140 60% 60%));
+    --gradient-indExpert: linear-gradient(135deg, hsl(120 60% 60%), hsl(140 60% 60%));
     --gradient-certifier: linear-gradient(135deg, hsl(266 100% 60%), hsl(280 100% 60%));
     --gradient-jobprovider: linear-gradient(135deg, hsl(15 100% 60%), hsl(0 100% 60%));
     --gradient-subtle: linear-gradient(135deg, hsl(266 50% 15%), hsl(220 50% 15%));
@@ -170,8 +170,8 @@
     background: var(--gradient-student);
   }
   
-  .gradient-educator {
-    background: var(--gradient-educator);
+  .gradient-indExpert {
+    background: var(--gradient-indExpert);
   }
   
   .gradient-certifier {

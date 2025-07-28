@@ -34,7 +34,7 @@ const RightPanel: React.FC = () => {
               Learn. Earn. Get Certified.
             </h2>
             <div className="space-y-2 text-lg text-muted-foreground">
-              <p className="font-semibold text-foreground">For Students & Educators</p>
+              <p className="font-semibold text-foreground">For Students & Ind. Experts</p>
               <p>✨ Verified Certifications</p>
               <p>🚀 Job Opportunities Await</p>
               <p>🎯 One Platform. Multiple Roles</p>
@@ -150,8 +150,8 @@ const RightPanel: React.FC = () => {
                       <Users className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-bold mb-2">Educators</h4>
-                      <p className="text-sm text-muted-foreground">Create courses, mentor students, and build professional networks with other educators.</p>
+                      <h4 className="font-bold mb-2">Ind. Experts</h4>
+                      <p className="text-sm text-muted-foreground">Share expertise, mentor students, and build professional networks as independent experts.</p>
                     </div>
                   </div>
                   
@@ -191,7 +191,7 @@ const RightPanel: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Professional Roles:</h4>
-                    <p className="text-sm text-muted-foreground">Educators, Certifiers, and Job Providers require manual verification for enhanced credibility.</p>
+                    <p className="text-sm text-muted-foreground">Ind. Experts, Certifiers, and Job Providers require manual verification for enhanced credibility.</p>
                   </div>
                 </div>
               </section>
@@ -207,7 +207,7 @@ const RightPanel: React.FC = () => {
                   </div>
                   <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg">
                     <Users className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                    <span className="text-sm font-medium">Educator Hub</span>
+                    <span className="text-sm font-medium">Ind. Expert Hub</span>
                   </div>
                   <div className="text-center p-3 bg-white dark:bg-gray-800 rounded-lg">
                     <Award className="w-8 h-8 text-purple-500 mx-auto mb-2" />

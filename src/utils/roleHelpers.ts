@@ -9,10 +9,10 @@ export const getRoleColor = (role: UserRole) => {
       gradient: 'gradient-student',
       bgClass: 'bg-section-blue'
     },
-    educator: {
-      primary: 'hsl(var(--educator-primary))',
-      secondary: 'hsl(var(--educator-secondary))',
-      gradient: 'gradient-educator',
+    indExpert: {
+      primary: 'hsl(var(--indExpert-primary))',
+      secondary: 'hsl(var(--indExpert-secondary))',
+      gradient: 'gradient-indExpert',
       bgClass: 'bg-section-green'
     },
     certifier: {
@@ -34,7 +34,7 @@ export const getRoleColor = (role: UserRole) => {
 export const getRoleIcon = (role: UserRole) => {
   const icons = {
     student: GraduationCap,
-    educator: Users,
+    indExpert: Users,
     certifier: Award,
     jobprovider: Briefcase
   };
@@ -44,7 +44,7 @@ export const getRoleIcon = (role: UserRole) => {
 export const getRoleDisplayName = (role: UserRole) => {
   const names = {
     student: 'Student',
-    educator: 'Educator',
+    indExpert: 'Ind. Expert',
     certifier: 'Certifier',
     jobprovider: 'Job Provider'
   };
@@ -54,7 +54,7 @@ export const getRoleDisplayName = (role: UserRole) => {
 export const getRoleDescription = (role: UserRole) => {
   const descriptions = {
     student: 'Access personalized learning paths, gain certifications, and connect with mentors for career growth.',
-    educator: 'Create courses, mentor students, and share expertise while building your professional network.',
+    indExpert: 'Share expertise, mentor students, and build your professional network as an independent expert.',
     certifier: 'Verify achievements, issue digital certificates, and maintain credibility standards.',
     jobprovider: 'Post opportunities, find skilled candidates, and build talented teams for your organization.'
   };

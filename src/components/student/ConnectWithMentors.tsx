@@ -9,7 +9,7 @@ import { toast } from '../ui/use-toast';
 interface Mentor {
   id: string;
   name: string;
-  role: 'educator' | 'certifier';
+  role: 'indExpert' | 'certifier';
   avatar: string;
   title: string;
   company: string;
@@ -27,7 +27,7 @@ interface Mentor {
 
 const ConnectWithMentors: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedRole, setSelectedRole] = useState<'all' | 'educator' | 'certifier'>('all');
+  const [selectedRole, setSelectedRole] = useState<'all' | 'indExpert' | 'certifier'>('all');
   const [showContactModal, setShowContactModal] = useState(false);
   const [selectedMentor, setSelectedMentor] = useState<Mentor | null>(null);
   const [contactMethod, setContactMethod] = useState<'email' | 'message'>('message');
@@ -38,9 +38,9 @@ const ConnectWithMentors: React.FC = () => {
     {
       id: '1',
       name: 'Dr. Priya Sharma',
-      role: 'educator',
+      role: 'indExpert',
       avatar: 'PS',
-      title: 'Senior Software Engineer & Educator',
+      title: 'Senior Software Engineer & Ind. Expert',
       company: 'TechCorp India',
       location: 'Bangalore, India',
       rating: 4.8,
@@ -74,7 +74,7 @@ const ConnectWithMentors: React.FC = () => {
     {
       id: '3',
       name: 'Anita Desai',
-      role: 'educator',
+      role: 'indExpert',
       avatar: 'AD',
       title: 'UI/UX Design Mentor',
       company: 'Design Academy',
@@ -165,16 +165,16 @@ const ConnectWithMentors: React.FC = () => {
     setContactMessage('');
   };
 
-  const getRoleIcon = (role: 'educator' | 'certifier') => {
-    return role === 'educator' ? GraduationCap : Award;
+  const getRoleIcon = (role: 'indExpert' | 'certifier') => {
+    return role === 'indExpert' ? GraduationCap : Award;
   };
 
-  const getRoleColor = (role: 'educator' | 'certifier') => {
-    return role === 'educator' ? 'text-green-600' : 'text-purple-600';
+  const getRoleColor = (role: 'indExpert' | 'certifier') => {
+    return role === 'indExpert' ? 'text-green-600' : 'text-purple-600';
   };
 
-  const getRoleBg = (role: 'educator' | 'certifier') => {
-    return role === 'educator' ? 'bg-green-100 dark:bg-green-900' : 'bg-purple-100 dark:bg-purple-900';
+  const getRoleBg = (role: 'indExpert' | 'certifier') => {
+    return role === 'indExpert' ? 'bg-green-100 dark:bg-green-900' : 'bg-purple-100 dark:bg-purple-900';
   };
 
   return (
@@ -183,7 +183,7 @@ const ConnectWithMentors: React.FC = () => {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-foreground mb-2">Connect with Mentors</h1>
         <p className="text-muted-foreground">
-          Connect with industry experts, educators, and certifiers for guidance, verification, and career growth.
+          Connect with industry experts, independent experts, and certifiers for guidance, verification, and career growth.
         </p>
       </div>
 
@@ -203,11 +203,11 @@ const ConnectWithMentors: React.FC = () => {
           <div className="flex gap-2">
             <select
               value={selectedRole}
-              onChange={(e) => setSelectedRole(e.target.value as 'all' | 'educator' | 'certifier')}
+              onChange={(e) => setSelectedRole(e.target.value as 'all' | 'indExpert' | 'certifier')}
               className="px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
             >
               <option value="all">All Mentors</option>
-              <option value="educator">Educators</option>
+              <option value="indExpert">Ind. Experts</option>
               <option value="certifier">Certifiers</option>
             </select>
             <button className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-foreground hover:bg-accent transition-colors">
