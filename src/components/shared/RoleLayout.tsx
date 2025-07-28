@@ -74,11 +74,6 @@ const RoleLayout: React.FC<RoleLayoutProps> = ({ role, menuItems, children }) =>
                 <span className="hidden sm:inline">{user?.fullName}</span>
                 <Edit3 className="w-3 h-3" />
               </button>
-
-              <div className="text-right">
-                <p className="text-sm font-medium text-foreground">{user?.fullName}</p>
-                <p className="text-xs text-muted-foreground">{roleDisplayName}</p>
-              </div>
               
               <button
                 onClick={logout}
