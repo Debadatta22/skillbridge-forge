@@ -21,6 +21,13 @@ const Index = () => {
   const [selectedRole, setSelectedRole] = useState<UserRole>('student');
 
   if (isAuthenticated && user) {
+    // Clear the URL path when switching between roles to avoid conflicts
+    if (window.location.pathname.includes('/indExpert/') || 
+        window.location.pathname.includes('/certifier/') || 
+        window.location.pathname.includes('/jobProvider/')) {
+      window.history.replaceState({}, '', '/');
+    }
+    
     switch (user.role) {
       case 'student':
         return <StudentHome />;
