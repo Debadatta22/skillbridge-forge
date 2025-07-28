@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home, Plus, Briefcase, ClipboardList, Users, BarChart3, Calendar, Settings, Search } from 'lucide-react';
 import RoleLayout from '../shared/RoleLayout';
+import JobProviderHome from '../dashboards/JobProviderHome';
 
 const JobProviderLayout: React.FC = () => {
   const menuItems = [
@@ -15,7 +16,11 @@ const JobProviderLayout: React.FC = () => {
     { id: 'settings', label: 'Settings', icon: Settings, path: '/jobProvider/settings' },
   ];
 
-  return <RoleLayout role="jobprovider" menuItems={menuItems} />;
+  return (
+    <RoleLayout role="jobprovider" menuItems={menuItems}>
+      <JobProviderHome />
+    </RoleLayout>
+  );
 };
 
 export default JobProviderLayout;

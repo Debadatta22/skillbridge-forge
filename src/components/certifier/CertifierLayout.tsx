@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home, Upload, Award, BarChart3, Bell, Users, FileCheck, Settings } from 'lucide-react';
 import RoleLayout from '../shared/RoleLayout';
+import CertifierHome from '../dashboards/CertifierHome';
 
 const CertifierLayout: React.FC = () => {
   const menuItems = [
@@ -14,7 +15,11 @@ const CertifierLayout: React.FC = () => {
     { id: 'settings', label: 'Settings', icon: Settings, path: '/certifier/settings' },
   ];
 
-  return <RoleLayout role="certifier" menuItems={menuItems} />;
+  return (
+    <RoleLayout role="certifier" menuItems={menuItems}>
+      <CertifierHome />
+    </RoleLayout>
+  );
 };
 
 export default CertifierLayout;

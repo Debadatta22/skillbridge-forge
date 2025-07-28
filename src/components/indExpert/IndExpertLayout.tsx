@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home, Users, UserCheck, Calendar, Clock, MessageSquare, BarChart3, BookOpen, Settings } from 'lucide-react';
 import RoleLayout from '../shared/RoleLayout';
+import IndExpertHome from '../dashboards/IndExpertHome';
 
 const IndExpertLayout: React.FC = () => {
   const menuItems = [
@@ -15,7 +16,11 @@ const IndExpertLayout: React.FC = () => {
     { id: 'settings', label: 'Settings', icon: Settings, path: '/indExpert/settings' },
   ];
 
-  return <RoleLayout role="indExpert" menuItems={menuItems} />;
+  return (
+    <RoleLayout role="indExpert" menuItems={menuItems}>
+      <IndExpertHome />
+    </RoleLayout>
+  );
 };
 
 export default IndExpertLayout;

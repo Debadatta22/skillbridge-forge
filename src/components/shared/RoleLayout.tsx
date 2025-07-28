@@ -19,7 +19,7 @@ interface RoleLayoutProps {
   children?: React.ReactNode;
 }
 
-const RoleLayout: React.FC<RoleLayoutProps> = ({ role, menuItems }) => {
+const RoleLayout: React.FC<RoleLayoutProps> = ({ role, menuItems, children }) => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -143,7 +143,7 @@ const RoleLayout: React.FC<RoleLayoutProps> = ({ role, menuItems }) => {
 
         {/* Main Content */}
         <main className="flex-1 lg:ml-0">
-          <Outlet />
+          {children || <Outlet />}
         </main>
       </div>
 

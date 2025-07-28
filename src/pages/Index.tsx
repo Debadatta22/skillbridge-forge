@@ -9,9 +9,9 @@ import RoleSelection from '../components/auth/RoleSelection';
 import RegistrationForm from '../components/auth/RegistrationForm';
 import SkillSelector from '../components/student/SkillSelector';
 import StudentHome from '../components/dashboards/StudentHome';
-import IndExpertHome from '../components/dashboards/IndExpertHome';
-import CertifierHome from '../components/dashboards/CertifierHome';
-import JobProviderHome from '../components/dashboards/JobProviderHome';
+import IndExpertLayout from '../components/indExpert/IndExpertLayout';
+import CertifierLayout from '../components/certifier/CertifierLayout';
+import JobProviderLayout from '../components/jobProvider/JobProviderLayout';
 
 type AuthStep = 'login' | 'role-selection' | 'registration' | 'skill-selection';
 
@@ -25,11 +25,11 @@ const Index = () => {
       case 'student':
         return <StudentHome />;
       case 'indExpert':
-        return <IndExpertHome />;
+        return <IndExpertLayout />;
       case 'certifier':
-        return <CertifierHome />;
+        return <CertifierLayout />;
       case 'jobprovider':
-        return <JobProviderHome />;
+        return <JobProviderLayout />;
       default:
         return <StudentHome />;
     }
