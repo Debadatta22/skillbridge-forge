@@ -43,7 +43,7 @@ const CertifierHome: React.FC = () => {
         {/* Welcome Section */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-foreground mb-2">
-            Welcome, Certifier {user?.fullName?.split(' ')[0]}! 🏆
+            Welcome, Certifier {user?.fullName?.split(' ').filter(name => name !== 'Demo')[0] || 'Certifier'}! 🏆
           </h2>
           <p className="text-muted-foreground">
             Verify achievements, issue digital certificates, and maintain industry standards.
