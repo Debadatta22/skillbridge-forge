@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LogOut, Users, BookOpen, Award, TrendingUp, Calendar, MessageSquare, Star, Bell, Mail, Clock, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-
 interface Notification {
   to: string;
   toName: string;
@@ -13,120 +12,29 @@ interface Notification {
   from: string;
   fromName: string;
 }
-
 const IndExpertHome: React.FC = () => {
-  const { user, logout } = useAuth();
+  const {
+    user,
+    logout
+  } = useAuth();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [showNotifications, setShowNotifications] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
-
   useEffect(() => {
     // Load notifications for this ind. expert
     const allNotifications = JSON.parse(localStorage.getItem('mentor_notifications') || '[]');
-    const indExpertNotifications = allNotifications.filter((notif: Notification) => 
-      notif.toRole === 'indExpert' && notif.toName === user?.fullName
-    );
+    const indExpertNotifications = allNotifications.filter((notif: Notification) => notif.toRole === 'indExpert' && notif.toName === user?.fullName);
     setNotifications(indExpertNotifications);
     setUnreadCount(indExpertNotifications.length);
   }, [user]);
-
   const markAsRead = () => {
     setUnreadCount(0);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-green-50/30 to-emerald-50/30 dark:from-background dark:via-green-900/10 dark:to-emerald-900/10">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-green-50/30 to-emerald-50/30 dark:from-background dark:via-green-900/10 dark:to-emerald-900/10">
       {/* Header */}
       <header className="bg-background/80 backdrop-blur-sm border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 gradient-indExpert rounded-lg flex items-center justify-center">
-                <Users className="w-5 h-5 text-white" />
-              </div>
-              <h1 className="text-xl font-bold text-foreground">SkillBridge Ind. Expert Hub</h1>
-            </div>
-            
-            <div className="flex items-center gap-4">
-              {/* Notifications */}
-              <div className="relative">
-                <button
-                  onClick={() => {
-                    setShowNotifications(!showNotifications);
-                    if (!showNotifications) markAsRead();
-                  }}
-                  className="relative p-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Bell className="w-5 h-5" />
-                  {unreadCount > 0 && (
-                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
-                      {unreadCount > 9 ? '9+' : unreadCount}
-                    </span>
-                  )}
-                </button>
-
-                {showNotifications && (
-                  <div className="absolute right-0 top-full mt-2 w-80 bg-background border border-border rounded-lg shadow-lg z-50 max-h-96 overflow-y-auto">
-                    <div className="p-4 border-b border-border">
-                      <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-foreground">Notifications</h3>
-                        <button
-                          onClick={() => setShowNotifications(false)}
-                          className="text-muted-foreground hover:text-foreground"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="max-h-64 overflow-y-auto">
-                      {notifications.length > 0 ? (
-                        notifications.map((notification, index) => (
-                          <div key={index} className="p-4 border-b border-border hover:bg-accent transition-colors">
-                            <div className="flex items-start gap-3">
-                              <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                                <Mail className="w-4 h-4 text-blue-600" />
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <p className="font-medium text-foreground text-sm">{notification.fromName}</p>
-                                  <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs rounded-full">
-                                    Student
-                                  </span>
-                                </div>
-                                <p className="text-sm text-muted-foreground mb-1">{notification.subject}</p>
-                                <p className="text-xs text-muted-foreground line-clamp-2">{notification.message}</p>
-                                <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
-                                  <Clock className="w-3 h-3" />
-                                  <span>{new Date(notification.timestamp).toLocaleString()}</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))
-                      ) : (
-                        <div className="p-8 text-center text-muted-foreground">
-                          <Bell className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                          <p>No new notifications</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="text-right">
-                <p className="text-sm font-medium text-foreground">{user?.fullName}</p>
-                <p className="text-xs text-muted-foreground">Ind. Expert</p>
-              </div>
-              <button
-                onClick={logout}
-                className="flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <LogOut className="w-4 h-4" />
-                <span>Logout</span>
-              </button>
-            </div>
-          </div>
+          
         </div>
       </header>
 
@@ -398,8 +306,6 @@ const IndExpertHome: React.FC = () => {
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default IndExpertHome;
