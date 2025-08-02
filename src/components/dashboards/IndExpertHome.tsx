@@ -43,7 +43,7 @@ const IndExpertHome: React.FC = () => {
         {/* Welcome Section */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-foreground mb-2">
-            Welcome, Ind. Expert {user?.fullName?.split(' ')[0]}! 🎓
+            Welcome , Industrial Expert !
           </h2>
           <p className="text-muted-foreground">
             Share your expertise, mentor students, and contribute to the future of digital education.
