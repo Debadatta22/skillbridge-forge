@@ -1,37 +1,14 @@
 import React from 'react';
 import { LogOut, Briefcase, Users, TrendingUp, Calendar, MapPin, DollarSign, Star } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-
 const JobProviderHome: React.FC = () => {
-  const { user, logout } = useAuth();
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-orange-50/30 to-red-50/30 dark:from-background dark:via-orange-900/10 dark:to-red-900/10">
+  const {
+    user,
+    logout
+  } = useAuth();
+  return <div className="min-h-screen bg-gradient-to-br from-background via-orange-50/30 to-red-50/30 dark:from-background dark:via-orange-900/10 dark:to-red-900/10">
       <header className="bg-background/80 backdrop-blur-sm border-b border-border shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 gradient-jobprovider rounded-lg flex items-center justify-center">
-                <Briefcase className="w-5 h-5 text-white" />
-              </div>
-              <h1 className="text-xl font-bold text-foreground">SkillBridge Employer Dashboard</h1>
-            </div>
-            
-            <div className="flex items-center gap-4">
-              <div className="text-right">
-                <p className="text-sm font-medium text-foreground">{user?.fullName}</p>
-                <p className="text-xs text-muted-foreground">Job Provider</p>
-              </div>
-              <button
-                onClick={logout}
-                className="flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <LogOut className="w-4 h-4" />
-                <span>Logout</span>
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -160,8 +137,6 @@ const JobProviderHome: React.FC = () => {
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default JobProviderHome;
